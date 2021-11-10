@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">211AndroidL</string>
+    <string name="nama">Nama</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="jumlah_sks">Jumlah SKS</string>
+    <string name="simpan">Simpan</string>
+    <string name="batal">Batal</string>
+    <string name="isi_tanggal_lahir">isi tanggal lahir</string>
+    <string name="masukan_jumlah_sks">Masukan jumlah SKS</string>
+    <string name="isi_denan_no_yang_aktif">Isi denan no yang aktif</string>
+    <string name="isi_dengan_email_valid">isi dengan email valid</string>
+    <string name="isi_nama_lengkap">isi nama lengkap</string>
 </resources>
