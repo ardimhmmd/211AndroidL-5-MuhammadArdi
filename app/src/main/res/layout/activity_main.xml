@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/isi_tanggal_lahir"
         android:inputType="date"
-        android:autofillHints=""
+        android:autofillHints="name"
         />
 
     <TextView
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/masukan_jumlah_sks"
         android:inputType="number"
-        android:autofillHints=""
+        android:autofillHints="phone"
         />
 
     <Button
