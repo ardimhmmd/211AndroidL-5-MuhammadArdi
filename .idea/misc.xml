@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/211AndroidL/app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/211AndroidL/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/211AndroidL/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
     </option>
