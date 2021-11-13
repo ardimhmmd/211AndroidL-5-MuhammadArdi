@@ -1,0 +1,256 @@
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 3f74f280710ec82c38c6eed64f4745e160aa8f6d)
++++ b/.idea/gradle.xml	(revision 48815ac309d461927ad524c027cf82e13cf01478)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 3f74f280710ec82c38c6eed64f4745e160aa8f6d)
++++ b/.idea/misc.xml	(revision 48815ac309d461927ad524c027cf82e13cf01478)
+@@ -3,7 +3,9 @@
+   <component name="DesignSurface">
+     <option name="filePathToZoomLevelMap">
+       <map>
+-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/211AndroidL/app/src/main/res/layout/activity_main.xml" value="0.10144927536231885" />
++        <entry key="..\:/Users/Administrator/AndroidStudioProjects/211AndroidL/app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.19583333333333333" />
++        <entry key="..\:/Users/Administrator/AndroidStudioProjects/211AndroidL/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.19583333333333333" />
++        <entry key="..\:/Users/Administrator/AndroidStudioProjects/211AndroidL/app/src/main/res/layout/activity_main.xml" value="0.22" />
+       </map>
+     </option>
+   </component>
+Index: app/src/main/java/com/ardi/a211androidl/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/ardi/a211androidl/MainActivity.kt b/app/src/main/java/com/ardi/a211androidl/MainActivity.kt
+--- a/app/src/main/java/com/ardi/a211androidl/MainActivity.kt	(revision 3f74f280710ec82c38c6eed64f4745e160aa8f6d)
++++ b/app/src/main/java/com/ardi/a211androidl/MainActivity.kt	(revision 48815ac309d461927ad524c027cf82e13cf01478)
+@@ -2,10 +2,33 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import android.widget.Button
++import android.widget.EditText
++import android.widget.Toast
+ 
+ class MainActivity : AppCompatActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_main)
++
++        val simpanButton = findViewById<Button>(R.id.simpanButton)
++        val batalButton = findViewById<Button>(R.id.batalButton)
++
++        val namaEditText = findViewById<EditText>(R.id.namaEditText)
++        val emailEditText = findViewById<EditText>(R.id.emailEditText)
++        val phoneEditText = findViewById<EditText>(R.id.phoneEditText)
++        val tanggallahirEditText = findViewById<EditText>(R.id.tanggallahirEditText)
++        val jumlahsksEditText = findViewById<EditText>(R.id.jumlahsksEditText)
++
++        simpanButton.setOnClickListener {
++            val nama = namaEditText.text.toString()
++            var jumlahsks = jumlahsksEditText.text.toString().toInt()
++            jumlahsks = 160 - jumlahsks
++
++            Toast.makeText(this,"SisaSKS... $jumlahsks ",Toast.LENGTH_SHORT).show()
++        }
++        batalButton.setOnClickListener {
++            Toast.makeText(this, "Batal", Toast.LENGTH_SHORT).show()
++        }
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision 3f74f280710ec82c38c6eed64f4745e160aa8f6d)
++++ b/app/src/main/res/layout/activity_main.xml	(revision 48815ac309d461927ad524c027cf82e13cf01478)
+@@ -1,18 +1,119 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
++<LinearLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
++    android:orientation="vertical"
++    android:padding="16dp"
+     tools:context=".MainActivity">
+ 
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Hello World!"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintLeft_toLeftOf="parent"
+-        app:layout_constraintRight_toRightOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++        android:text="@string/nama"
++       />
++
++    <EditText
++        android:id="@+id/namaEditText"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:hint="@string/isi_nama_lengkap"
++        android:inputType="textPersonName"
++        android:autofillHints="name"
++        android:layout_marginBottom="8dp"
++        />
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/email"
++        />
++
++    <EditText
++        android:id="@+id/emailEditText"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:hint="@string/isi_dengan_email_valid"
++        android:inputType="textEmailAddress"
++        android:autofillHints="emailAddress"
++        android:layout_marginBottom="8dp"
++        />
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/phone"
++        />
++
++    <EditText
++        android:id="@+id/phoneEditText"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:hint="@string/isi_denan_no_yang_aktif"
++        android:inputType="phone"
++        android:autofillHints="phone"
++        android:layout_marginBottom="8dp"
++        />
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/tanggal_lahir"
++        />
++
++    <EditText
++        android:id="@+id/tanggallahirEditText"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:hint="@string/isi_tanggal_lahir"
++        android:inputType="date"
++        android:autofillHints="name"
++        android:layout_marginBottom="8dp"
++        />
++
++    <TextView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/jumlah_sks"
++        />
++
++    <EditText
++        android:id="@+id/jumlahsksEditText"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:hint="@string/masukan_jumlah_sks"
++        android:inputType="number"
++        android:autofillHints="phone"
++        android:layout_marginBottom="8dp"
++        />
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="horizontal"
++        android:gravity="end"
++        >
++
++    <Button
++        android:id="@+id/simpanButton"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/simpan"
++        android:backgroundTint="@color/success"
++        android:drawableLeft="@drawable/ic_baseline_save_24"
++        android:layout_marginEnd="8dp"
++        />
++
++    <Button
++        android:id="@+id/batalButton"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/batal"
++        android:backgroundTint="@color/denger"
++        android:drawableLeft="@drawable/ic_baseline_cancel_24"
++        />
++   </LinearLayout>
++
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision 3f74f280710ec82c38c6eed64f4745e160aa8f6d)
++++ b/app/src/main/res/values/colors.xml	(revision 48815ac309d461927ad524c027cf82e13cf01478)
+@@ -7,4 +7,6 @@
+     <color name="teal_700">#FF018786</color>
+     <color name="black">#FF000000</color>
+     <color name="white">#FFFFFFFF</color>
++    <color name="denger">#FA0000</color>
++    <color name="success">#14E61C</color>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 3f74f280710ec82c38c6eed64f4745e160aa8f6d)
++++ b/app/src/main/res/values/strings.xml	(revision 48815ac309d461927ad524c027cf82e13cf01478)
+@@ -1,3 +1,15 @@
+ <resources>
+     <string name="app_name">211AndroidL</string>
++    <string name="nama">Nama</string>
++    <string name="email">Email</string>
++    <string name="phone">Phone</string>
++    <string name="tanggal_lahir">Tanggal Lahir</string>
++    <string name="jumlah_sks">Jumlah SKS</string>
++    <string name="simpan">Simpan</string>
++    <string name="batal">Batal</string>
++    <string name="isi_tanggal_lahir">isi tanggal lahir</string>
++    <string name="masukan_jumlah_sks">Masukan jumlah SKS</string>
++    <string name="isi_denan_no_yang_aktif">Isi denan no yang aktif</string>
++    <string name="isi_dengan_email_valid">isi dengan email valid</string>
++    <string name="isi_nama_lengkap">isi nama lengkap</string>
+ </resources>
+\ No newline at end of file
